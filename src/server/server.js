@@ -29,7 +29,7 @@ app.get('/api/location', async (req, res) => {
       url: 'https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse',
       params: { lat: latitude, lon: longitude, 'accept-language': 'en', polygon_threshold: '0.0' },
       headers: {
-        'X-RapidAPI-Key': 'f97b0395cdmsh04958b4c57561a5p10a4adjsn21d50b6e3b2d',
+        'X-RapidAPI-Key': 'KEY',
         'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com'
       }
     });
