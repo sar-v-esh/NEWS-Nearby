@@ -1,53 +1,23 @@
 import React from 'react';
+import './newscard.css'
 
-function NewsCard({ title, link, image }) {
+function NewsCard({ title, link }) {
   return (
-    <div style={styles.card}>
-      {image && <img src={image} alt={title} style={styles.image} />}
-      <h3 style={styles.title}>{title}</h3>
-      <div style={styles.buttonContainer}>
-        <a href={link} target="_blank" rel="noopener noreferrer" style={styles.readMoreButton}>
-          Read More
-        </a>
+    <div className="card">
+      <div className="box">
+        <div className="content">
+          <h3>{title}</h3>
+            <div className="newsContent">
+              {/* Your news content goes here */}
+            </div>
+            <a href={link} target="_blank" rel="noopener noreferrer" className="readMoreButton">
+              Read More
+            </a>
+       </div>
+
       </div>
     </div>
   );
 }
-
-const styles = {
-  card: {
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    padding: '10px',
-    backgroundColor: '#fff',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    height: '100%',
-  },
-  image: {
-    width: '100%',
-    height: 'auto',
-    marginBottom: '8px',
-  },
-  title: {
-    fontSize: '1em',
-    marginBottom: '8px',
-  },
-  buttonContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '10px',
-  },
-  readMoreButton: {
-    fontSize: '0.9em',
-    color: '#fff',
-    backgroundColor: '#007BFF',
-    textDecoration: 'none',
-    padding: '10px',
-    borderRadius: '4px',
-  },
-};
 
 export default NewsCard;

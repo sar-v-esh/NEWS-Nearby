@@ -66,8 +66,13 @@ app.get('/api/location', async (req, res) => {
     res.status(500).json({ error: 'News data is undefined or empty' });
     return;
   }
+  //check below lines
+  const newsWithImages = feed.items.map(item => {
+    const image = item['media:content'] ? item['media:content']['$'].url : null;
+    return { ...item, image };
+  });
 
-  res.json({ news: feed.items, city, state });
+  res.json({ news: feed.items, city, state ,news:newsWithImages});
 });
 
 const port = process.env.PORT || 3001;

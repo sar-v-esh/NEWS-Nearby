@@ -1,0 +1,155 @@
+/*
+.card {
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+               -15px -15px 30px rgb(60, 60, 60);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: palevioletred;
+    flex-basis: 25%;
+    
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    align-items:center;
+}
+
+.readMoreButton {
+    font-size: 0.9em;
+    color: #fff;
+    background-color: #007BFF;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto; /* This will center the container */
+  max-width: 92%; /* This will leave some gaps on the left and right */
+  padding: 20px; /* This will add some space around the cards */
+}
+
+.card {
+  position: relative;
+  min-width: 320px; /* Adjust this to change the minimum width of the card */
+  max-width: 320px; /* Adjust this to change the maximum width of the card */
+  height: 400px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 17px;
+  margin: 9px;
+  margin-left: 10px;
+  transition: 0.5s;
+  padding: 10px;
+  flex: 1 0 21%; /* This will make four cards in a row */
+}
+
+.box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.box:hover {
+  transform: translateY(-50px);
+}
+
+.box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.content {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.newsContent {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* number of lines to display */
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
+}
+
+.readMoreButton {
+  display: inline-block;
+  width: 55%; /* Adjust this to change the width of the button */
+  background: black;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  align-self: center;
+}
+
+.readMoreButton:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
+}

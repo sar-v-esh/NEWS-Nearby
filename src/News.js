@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
+import './news.css';
 
 function News({ location }) {
   const [news, setNews] = useState([]);
@@ -49,79 +50,34 @@ function News({ location }) {
 
   
   return (
-    <div style={styles.news}>
-      
-
-      
-
+    <div className="news">
       {district && (
-        <form onSubmit={handleSearchSubmit} style={styles.searchForm}>
+        <form onSubmit={handleSearchSubmit} className="searchForm">
           <input
             type="text"
             value={searchInput}
             onChange={handleSearchChange}
             placeholder="Search News"
-            style={styles.searchInput}
+            className="searchInput"
           />
-          <button type="submit" style={styles.searchButton}>
+          <button type="submit" className="searchButton">
             Search
           </button>
         </form>
       )}
-
-      <div style={styles.cardsContainer}>
-        {Array.isArray(news) && news.length > 0 ? (
-          news.map((item, index) => (
-            <NewsCard key={index} title={item.title} link={item.link} image={item.image} />
-          ))
+      
+      <div className="container">
+      {Array.isArray(news) && news.length > 0 ? (
+      news.map((item, index) => (
+      <NewsCard key={index} title={item.title} link={item.link} />
+      ))
         ) : (
-          <p>No news available</p>
-        )}
+      <p>No news available</p>
+          )}
       </div>
+
     </div>
   );
 }
-
-
-const styles = {
-  news: {
-   
-    borderRadius: '4px',
-    padding: '20px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    display: 'grid',
-    gridTemplateRows: 'auto auto 1fr',
-  },
-  title: {
-    fontSize: '1.5em',
-    marginBottom: '20px',
-    textAlign: 'center',
-    gridRow: '1',
-  },
-  searchForm: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center', // Add this line
-    marginBottom: '20px',
-    gridRow: '2',
-  },
-  searchInput: {
-    fontSize: '1em',
-    padding: '8px',
-    marginRight: '8px',
-  },
-  searchButton: {
-    fontSize: '1em',
-    padding: '8px',
-  },
-  cardsContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '50px',
-    alignItems: 'stretch',
-    gridRow: '3', // Change from 2 to 3
-  },
-};
 
 export default News;

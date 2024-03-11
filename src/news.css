@@ -1,0 +1,62 @@
+/*.news {
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(21, 12, 12, 0.1);
+    display: grid;
+    grid-template-columns: repeat(1, 5fr); 
+    grid-template-rows: repeat(4, auto); 
+}
+.title {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-align: center;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    margin-bottom: 20px;
+    grid-row: 2;
+}
+
+.searchInput {
+    font-size: 1em;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.searchButton {
+    font-size: 1em;
+    padding: 8px;
+}
+
+.cardsContainer {
+    /*display: grid;    
+    gap: 25px;
+    align-items: stretch;
+    grid-row: 3; 
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    background-color: chartreuse;
+}
+
+
+@media (min-width: 500px) {
+    .cardsContainer {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+*/

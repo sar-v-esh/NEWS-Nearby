@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import News from './News';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './App.css';
 
 function App() {
   const [location, setLocation] = useState(null);
   const [inputLocation, setInputLocation] = useState('');
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -28,52 +31,17 @@ function App() {
   };
 
   return (
-    <div style={styles.app}>
-      <h1 style={styles.h1}>News Nearby</h1>
-      <form onSubmit={handleLocationSubmit} style={styles.form}>
-        <input type="text" value={inputLocation} onChange={handleLocationChange} placeholder="Enter a location" style={styles.input} />
-        <button type="submit" style={styles.button}>Fetch News</button>
-      </form>
+    <div className="app">
+      <h1 className="title">NEWS Nearby</h1>
+      <div className="searchBox" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <form onSubmit={handleLocationSubmit} className="searchForm">
+          <input type="text" value={inputLocation} onChange={handleLocationChange} placeholder={isHovered ? "Enter a keyword" : ""} className="searchInput" />
+          {!isHovered && <i className="fas fa-search searchIcon"></i>}
+        </form>
+      </div>
       {location && <News location={location} />}
-
     </div>
   );
 }
-
-const styles = {
-  app: {
-    fontFamily: 'Arial, sans-serif',
-    color: '#333',
-    padding: '20px',
-    maxWidth: '800px',
-    margin: '0 auto',
-    backgroundColor: '#add8e6', // Light blue color
-  },
-  
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: '20px',
-    padding:'20px' // Updated from marginBottom to marginTop
-  },
-  input: {
-    fontSize: '1.2em',
-    padding: '10px',
-    width: '60%',
-    marginBottom: '10px',
-  },
-  button: {
-    fontSize: '1em',
-    padding: '10px',
-  },
-
-  h1:{
-    fontFamily: "Peralta",
-    fontWeight: "400",
-    textAlign:"center",
-    fontStyle: "normal",
-  }
-};
 
 export default App;
