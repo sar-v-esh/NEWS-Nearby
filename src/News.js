@@ -17,6 +17,7 @@ function News({ location }) {
     // For now, just log the search input
     console.log('Search submitted:', searchInput);
   };
+
   useEffect(() => {
     const fetchNews = async () => {
       let url;
@@ -25,7 +26,7 @@ function News({ location }) {
       } else {
         url = `http://localhost:3001/api/location?latitude=${location.latitude}&longitude=${location.longitude}`;
       }
-
+      
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -48,7 +49,6 @@ function News({ location }) {
     fetchNews();
   }, [location]);
 
-  
   return (
     <div className="news">
       {district && (
@@ -72,7 +72,7 @@ function News({ location }) {
       <NewsCard key={index} title={item.title} link={item.link} />
       ))
         ) : (
-      <p>No news available</p>
+      <p></p>
           )}
       </div>
 

@@ -40,7 +40,7 @@ app.get('/api/location', async (req, res) => {
     // Log the entire address object for testing purpose
 
     // Check for different address components not all has same output style
-    city = address?.city || address?.suburb || address?.neighbourhood || address?.district;
+    city = address?.city || address?.suburb || address?.neighbourhood || address?.county || address?.district || address?.village;
     state = address?.state;
   }
 

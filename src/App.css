@@ -48,17 +48,40 @@ input{
   justify-content: center;
   align-items: center;
   gap: 20px; /* Adjust this value to increase or decrease the gap */
+  
 }
 
-.title {
+.title__dynamic {
   /* Your existing styles */
   text-align: center;
   font-family: Peralta;
   margin-top: 60px; /* Increase or decrease this value to adjust the gap above the title */
   margin-bottom: 50px;
   font-size: 55px;
-}
+  background: linear-gradient(
+        to right,
+        #E33DA6 20%,
+        #E3593D 40%,
+        #E33D43 60%,
+        #CE3DE3 80%,
+        #EB383E 100%
 
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-size: 550% auto;
+    animation: textShine 4.5s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
 .searchBox {
   /* Your existing styles */
   position: relative;
@@ -118,4 +141,58 @@ input{
 }
 .searchForm {
   position: relative;
+}
+/* Your existing styles */
+
+/* Add the styles for the preloader container */
+.app__preloader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35); /* Semi-transparent background */
+  z-index: 9999; /* Ensure the preloader appears above all other content */
+}
+
+/* Add the styles for the animated element inside the preloader */
+.app__preloader .ip__worm1,
+.app__preloader .ip__worm2 {
+  animation: worm 1s linear infinite;
+}
+
+.app__preloader .ip__worm2 {
+  animation-name: worm2;
+}
+
+/* Animation */
+@keyframes worm {
+  from {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    animation-timing-function: steps(1);
+    stroke-dashoffset: -358;
+  }
+  50.01% {
+    animation-timing-function: linear;
+    stroke-dashoffset: 358;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes worm2 {
+  from {
+    stroke-dashoffset: 358;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -358;
+  }
 }
